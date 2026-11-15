@@ -1,0 +1,4 @@
+##f$preflop##
+    WHEN ThisSymbolDoesNotExistAnywhere RaiseMax FORCE
+    WHEN HaveFlushDraw bet FORCE
+    WHEN Others Fold FORCE

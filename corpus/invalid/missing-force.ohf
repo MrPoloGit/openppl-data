@@ -1,0 +1,3 @@
+##f$preflop##
+    WHEN hand$AA RaiseMax
+    WHEN Others Fold FORCE

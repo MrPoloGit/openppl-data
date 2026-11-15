@@ -1,0 +1,11 @@
+##f$preflop##
+    // This is a comment
+    // Your code belongs here.
+    WHEN hand$AA RaiseMax FORCE
+    WHEN Others Fold FORCE
+
+##f$flop##
+
+##f$turn##
+
+##f$river##

@@ -1,0 +1,12 @@
+##list007##
+    // Allin-range against crazy maniacs
+    AA KK QQ JJ TT 99
+    AKs AQs AJs ATs KQs
+    AKo AQo AJo
+
+##listOfBiggestTrash##
+    K8s K7s K6s K5s K4s K3s K2s
+    K8o Q7o
+
+##f$preflop##
+    WHEN (NOT InBigBlind AND list007) Fold FORCE

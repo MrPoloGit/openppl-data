@@ -1,0 +1,29 @@
+##f$CardsLeft##
+    WHEN betround = 2 RETURN 47 FORCE
+    WHEN betround = 3 RETURN 46 FORCE
+    WHEN Others RETURN -1 FORCE
+
+##f$Outs##
+    WHEN HaveFlushDraw RETURN 9 FORCE
+    WHEN Others RETURN 8 FORCE
+
+##f$preflop##
+    // Calling according to odds and outs
+    WHEN AmountToCall / (AmountToCall + PotSize) > f$Outs / f$CardsLeft Call FORCE
+    WHEN (HaveNothing AND OpponentsLeft >= 2 AND NOT BotIsLastRaiser) Check FORCE
+    WHEN (BotIsLastRaiser AND OpponentsLeft = 1 AND Bets = 0) BetHalfPot FORCE
+    WHEN (hand$AA OR hand$KK) RaiseMax FORCE
+    WHEN (AmountToCall <= 50% PotSize) Call FORCE
+    WHEN StackSize < 1.5 RaiseBy 1 FORCE
+    WHEN StackSize ~~ 3 RaiseMax FORCE
+    WHEN Position != First RaiseBy 70% FORCE
+    WHEN board$A Call FORCE
+    WHEN board$AT SUITED RaisePot FORCE
+    WHEN board$ATSuited RaisePot FORCE
+    WHEN FirstCallerPosition = 9 Set user_UTG_Was_Limping
+    WHEN userDoesNotKnowWhatToDo Call FORCE
+    WHEN (BotsActionsOnThisRound = 0) Set me_st_MySecretVariable_3_141592653
+    WHEN hand$AKs RaiseMax FORCE
+    WHEN hand$AQSuited RaiseMax FORCE
+    WHEN hand$AcQd RaiseMax FORCE
+    WHEN Others Fold FORCE
